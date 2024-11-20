@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Core;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,13 @@ namespace IPy
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void clickRect_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            //MessageBox.Show("You clicked the ellipse!");
+
+            RunPy.Run();
         }
     }
 }

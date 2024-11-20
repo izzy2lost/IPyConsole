@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Rectangle Name="clickRect" Fill="Black" Width="200" Height="100" MouseUp="clickRect_MouseUp" />
 
     </Grid>
+
 </Window>
