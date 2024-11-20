@@ -4,11 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IPy"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Rectangle Name="clickRect" Fill="Black" Width="200" Height="100" MouseUp="clickRect_MouseUp" />
+        Title="MainWindow" Height="450" Width="800" Background="LightBlue">
+    <Grid Margin="4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="4"/>
+            <RowDefinition Height="24"/>
+        </Grid.RowDefinitions>
 
+        <TextBox x:Name="tb" Text="{Binding ElementName=sld, Path=Value}"/>
+        <Slider x:Name="sld" Grid.Row="2" Value="50" Maximum="100" Minimum="0"/>
+
+        <Rectangle Name="clickRect" Fill="Black" Width="20" Height="20" MouseUp="clickRect_MouseUp" />
     </Grid>
 
 </Window>
