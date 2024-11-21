@@ -6,18 +6,20 @@
         xmlns:local="clr-namespace:IPy"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
+        xmlns:controlib="clr-namespace:ControlLib;assembly=ControlLib"
         Title="MainWindow" Height="450" Width="800" Background="LightBlue">
     <Grid Margin="4">
         <Grid.RowDefinitions>
-            <RowDefinition Height="24"/>
-            <RowDefinition Height="4"/>
-            <RowDefinition Height="24"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition />
         </Grid.RowDefinitions>
 
         <TextBox x:Name="tb" Text="{Binding ElementName=sld, Path=Value}"/>
         <Slider x:Name="sld" Grid.Row="2" Value="50" Maximum="100" Minimum="0"/>
 
         <Rectangle Name="clickRect" Fill="Black" Width="20" Height="20" MouseUp="clickRect_MouseUp" />
+
+        <controlib:Calculate Grid.Row="3"/>
     </Grid>
 
 </Window>
