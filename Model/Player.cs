@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
-namespace ControlLib.Utils
+namespace Model
 {
-    internal class Player: INotifyPropertyChanged
+    public class Player: INotifyPropertyChanged
     {
         private readonly int _id;
 

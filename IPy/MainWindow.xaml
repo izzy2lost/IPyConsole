@@ -1,25 +1,71 @@
 ﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="IPy.MainWindow"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d"
+        
         xmlns:local="clr-namespace:IPy"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        mc:Ignorable="d"
-        xmlns:controlib="clr-namespace:ControlLib;assembly=ControlLib"
-        Title="MainWindow" Height="450" Width="800" Background="LightBlue">
-    <Grid Margin="4">
+        xmlns:content="clr-namespace:ControlLib.Content;assembly=ControlLib"
+
+        Activated="Window_Activated"
+        Deactivated="Window_Deactivated"
+        Closing="Window_Closing"
+        WindowState="{Binding WindowSize, RelativeSource={RelativeSource Self}}"
+        Topmost="{Binding IsTopWindow, RelativeSource={RelativeSource Self}}"
+        
+        Title = "Ipy"
+        MinHeight="500"
+        MaxHeight="1200"
+        Height = "900"
+        MinWidth="1000"
+        MaxWidth="1980"
+        Width = "1600"
+        ShowInTaskbar="True"
+        ResizeMode = "CanResizeWithGrip"
+        WindowStartupLocation="CenterScreen">
+    
+    <Grid Margin="1">
+        <!-- define the attributes of a grid's row -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition />
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="700"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <TextBox x:Name="tb" Text="{Binding ElementName=sld, Path=Value}"/>
-        <Slider x:Name="sld" Grid.Row="2" Value="50" Maximum="100" Minimum="0"/>
+        <!-- Tool Bar -->
+        <StackPanel Grid.Row="0" Background="LightBlue">
 
-        <Rectangle Name="clickRect" Fill="Black" Width="20" Height="20" MouseUp="clickRect_MouseUp" />
-
-        <controlib:Calculate Grid.Row="3"/>
+        </StackPanel>
+        
+        <!-- Main Window -->
+        <Grid Grid.Row="1" Background="WhiteSmoke">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <content:Calculate Grid.Column="0" VerticalAlignment="Top" Margin="0,0,0,0"/>
+            
+            <Canvas Grid.Column="1">
+                <Path Stroke="Black" Fill="Gray">
+                    <Path.Data>
+                        <PathGeometry Figures="M 10,100 C 10,300 300,-200 300,100" />
+                    </Path.Data>
+                </Path>
+            </Canvas>
+            
+            
+        </Grid>
+        
+        <!-- Bottom Bar -->
+        <StackPanel Grid.Row="2" Background="LightBlue">
+            <TextBox x:Name="WindowsActiveIcon"
+                     Height="30" Width="30" Margin="0" HorizontalAlignment="Left"/>
+        </StackPanel>
+        
     </Grid>
-
 </Window>

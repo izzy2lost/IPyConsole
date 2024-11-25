@@ -1,12 +1,12 @@
 ﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="ControlLib.Calculate"
-             xmlns:u="clr-namespace:ControlLib.Utils"
+             x:Class="ControlLib.Content.Calculate"
+             xmlns:m="clr-namespace:Model;assembly=Model"
              Width="240"
              Height="160"
              Background="LightBlue">
     <UserControl.Resources>
-        <u:Player x:Key="playerDS"/>
+        <m:Player x:Key="playerDS"/>
 
         <Style x:Key="TextBoxSytle" TargetType="{x:Type TextBox}">
             <Setter Property="Canvas.Left" Value="100"/>
