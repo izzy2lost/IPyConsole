@@ -8,9 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="LeftBar\" />
     <Folder Include="Resource\Img\" />
-    <Folder Include="RightBar\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -9,6 +9,10 @@
         xmlns:local="clr-namespace:IPy"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:content="clr-namespace:ControlLib.Content;assembly=ControlLib"
+        xmlns:leftBar="clr-namespace:ControlLib.LeftBar;assembly=ControlLib"
+        xmlns:rightBar="clr-namespace:ControlLib.RightBar;assembly=ControlLib"
+        xmlns:topBar="clr-namespace:ControlLib.TopBar;assembly=ControlLib"
+        xmlns:bottomBar="clr-namespace:ControlLib.BottomBar;assembly=ControlLib"
 
         Activated="Window_Activated"
         Deactivated="Window_Deactivated"
@@ -37,7 +41,7 @@
 
         <!-- Tool Bar -->
         <StackPanel Grid.Row="0" Background="LightBlue">
-
+            <topBar:TopBar/>
         </StackPanel>
         
         <!-- Main Window -->
@@ -48,16 +52,15 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             
-            <content:Calculate Grid.Column="0" VerticalAlignment="Top" Margin="0,0,0,0"/>
+            <!-- left function bar -->
+            <leftBar:LeftBar Grid.Column="0"/>
             
-            <Canvas Grid.Column="1">
-                <Path Stroke="Black" Fill="Gray">
-                    <Path.Data>
-                        <PathGeometry Figures="M 10,100 C 10,300 300,-200 300,100" />
-                    </Path.Data>
-                </Path>
-            </Canvas>
+            <!-- <content:Calculate Grid.Column="0" VerticalAlignment="Top" Margin="0,0,0,0"/> -->
             
+            <content:Content Grid.Column="1"/>
+            
+            <!-- right definition bar -->
+            <rightBar:RightBar Grid.Column="2"/>
             
         </Grid>
         
@@ -65,6 +68,9 @@
         <StackPanel Grid.Row="2" Background="LightBlue">
             <TextBox x:Name="WindowsActiveIcon"
                      Height="30" Width="30" Margin="0" HorizontalAlignment="Left"/>
+            
+            <bottomBar:BottomBar/>
+            
         </StackPanel>
         
     </Grid>
