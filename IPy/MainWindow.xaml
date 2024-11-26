@@ -14,64 +14,112 @@
         xmlns:topBar="clr-namespace:ControlLib.TopBar;assembly=ControlLib"
         xmlns:bottomBar="clr-namespace:ControlLib.BottomBar;assembly=ControlLib"
 
+        xmlns:m="clr-namespace:Model;assembly=Model"
+        
+        Loaded="Window_Loaded"
         Activated="Window_Activated"
         Deactivated="Window_Deactivated"
         Closing="Window_Closing"
+
         WindowState="{Binding WindowSize, RelativeSource={RelativeSource Self}}"
         Topmost="{Binding IsTopWindow, RelativeSource={RelativeSource Self}}"
         
         Title = "Ipy"
         MinHeight="500"
-        MaxHeight="1200"
         Height = "900"
+        MaxHeight="1200"
         MinWidth="1000"
-        MaxWidth="1980"
         Width = "1600"
+        MaxWidth="1900"
+
         ShowInTaskbar="True"
         ResizeMode = "CanResizeWithGrip"
         WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <m:ImgPaths x:Key="ImgPathDs"/>
+    </Window.Resources>
     
-    <Grid Margin="1">
+    <Window.DataContext>
+        <Binding Source="{StaticResource ImgPathDs}"/>
+    </Window.DataContext>
+    
+    <Grid Margin="2">
         <!-- define the attributes of a grid's row -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="150"/>
-            <RowDefinition Height="700"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="140" MinHeight="100"/>
+            <RowDefinition Height="*" MinHeight="400"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="Auto" MinHeight="50"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-
+        
         <!-- Tool Bar -->
-        <StackPanel Grid.Row="0" Background="LightBlue">
+        <StackPanel Grid.Row="0" Background="WhiteSmoke">
             <topBar:TopBar/>
         </StackPanel>
         
         <!-- Main Window -->
-        <Grid Grid.Row="1" Background="WhiteSmoke">
+        <Grid Grid.Row="1" Background="WhiteSmoke" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="Auto" MinWidth="150"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*" MinWidth="300"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="Auto" MinWidth="150"/>
+                <ColumnDefinition Width="20"/>
             </Grid.ColumnDefinitions>
             
+            <!-- left toolbar -->
+            <Grid Grid.Column="0" Background="#323844">
+                <TextBox Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top">btn</TextBox>
+            </Grid>
+            
             <!-- left function bar -->
-            <leftBar:LeftBar Grid.Column="0"/>
+            <Grid Grid.Column="1">
+                <leftBar:LeftBar/>
+            </Grid>
             
-            <!-- <content:Calculate Grid.Column="0" VerticalAlignment="Top" Margin="0,0,0,0"/> -->
+            <!-- 拖拽条 -->
+            <GridSplitter Grid.Column="2" Width="5" HorizontalAlignment="Center" VerticalAlignment="Stretch"
+                          Background="SkyBlue" ShowsPreview="False"/>
+
+            <!-- content -->
+            <Grid Grid.Column="3">
+                <content:Content/>
+            </Grid>
             
-            <content:Content Grid.Column="1"/>
-            
+            <!-- 拖拽条 -->
+            <GridSplitter Grid.Column="4" Width="5" HorizontalAlignment="Center" VerticalAlignment="Stretch"
+                          Background="SkyBlue" ShowsPreview="False"/>
+
             <!-- right definition bar -->
-            <rightBar:RightBar Grid.Column="2"/>
+            <Grid Grid.Column="5">
+                <rightBar:RightBar/>
+            </Grid>
+            
+            <!-- right toolbar -->
+            <Grid Grid.Column="6" Background="#323844">
+                <TextBox Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top">btn</TextBox>
+            </Grid>
             
         </Grid>
         
+        <!-- 拖拽条 --> 
+        <GridSplitter Grid.Row="2" Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                      Background="SkyBlue" ShowsPreview="False"/>
+        
         <!-- Bottom Bar -->
-        <StackPanel Grid.Row="2" Background="LightBlue">
-            <TextBox x:Name="WindowsActiveIcon"
-                     Height="30" Width="30" Margin="0" HorizontalAlignment="Left"/>
-            
-            <bottomBar:BottomBar/>
-            
+        <StackPanel Grid.Row="3" Background="WhiteSmoke">
+            <bottomBar:BottomBar HorizontalAlignment="Left" VerticalAlignment="Top"/>
         </StackPanel>
         
+        <!-- Status Bar -->
+        <Grid Grid.Row="4">
+            <TextBox x:Name="WindowsActiveIcon"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top"
+                     Height="20" Width="20" Margin="0" />
+        </Grid>
     </Grid>
 </Window>
