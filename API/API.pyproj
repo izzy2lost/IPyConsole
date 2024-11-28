@@ -23,6 +23,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="API.py" />
+    <Compile Include="Auto.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|IronPython|3.4" />

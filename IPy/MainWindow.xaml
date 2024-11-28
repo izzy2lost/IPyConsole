@@ -11,8 +11,10 @@
         xmlns:content="clr-namespace:ControlLib.Content;assembly=ControlLib"
         xmlns:leftBar="clr-namespace:ControlLib.LeftBar;assembly=ControlLib"
         xmlns:rightBar="clr-namespace:ControlLib.RightBar;assembly=ControlLib"
-        xmlns:topBar="clr-namespace:ControlLib.TopBar;assembly=ControlLib"
-        xmlns:bottomBar="clr-namespace:ControlLib.BottomBar;assembly=ControlLib"
+        xmlns:topBtnBar="clr-namespace:ControlLib.TopBar.TopBtnBar;assembly=ControlLib"
+        xmlns:topFuncBar ="clr-namespace:ControlLib.TopBar.TopFuncBar;assembly=ControlLib"
+        xmlns:bottomBtnBar="clr-namespace:ControlLib.BottomBar.BottomBtnBar;assembly=ControlLib"
+        xmlns:bottomFuncBar="clr-namespace:ControlLib.BottomBar.BottomFuncBar;assembly=ControlLib"
 
         xmlns:m="clr-namespace:Model;assembly=Model"
         
@@ -46,27 +48,32 @@
     <Grid Margin="2">
         <!-- define the attributes of a grid's row -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="140" MinHeight="100"/>
+            <RowDefinition Height="20" MinHeight="20"/>
+            <RowDefinition Height="120" MinHeight="0"/>
             <RowDefinition Height="*" MinHeight="400"/>
             <RowDefinition Height="5"/>
-            <RowDefinition Height="Auto" MinHeight="50"/>
+            <RowDefinition Height="Auto" MinHeight="100"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         
         <!-- Tool Bar -->
         <StackPanel Grid.Row="0" Background="WhiteSmoke">
-            <topBar:TopBar/>
+            <topBtnBar:TopBtnBar/>
         </StackPanel>
-        
+
+        <StackPanel Grid.Row="1" Background="SkyBlue">
+            <topFuncBar:TopFuncBar/>
+        </StackPanel>
+
         <!-- Main Window -->
-        <Grid Grid.Row="1" Background="WhiteSmoke" >
+        <Grid Grid.Row="2" Background="WhiteSmoke" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="Auto" MinWidth="150"/>
+                <ColumnDefinition Width="Auto" MinWidth="300"/>
                 <ColumnDefinition Width="5"/>
                 <ColumnDefinition Width="*" MinWidth="300"/>
                 <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="Auto" MinWidth="150"/>
+                <ColumnDefinition Width="Auto" MinWidth="250"/>
                 <ColumnDefinition Width="20"/>
             </Grid.ColumnDefinitions>
             
@@ -106,16 +113,17 @@
         </Grid>
         
         <!-- 拖拽条 --> 
-        <GridSplitter Grid.Row="2" Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+        <GridSplitter Grid.Row="3" Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Center"
                       Background="SkyBlue" ShowsPreview="False"/>
         
         <!-- Bottom Bar -->
-        <StackPanel Grid.Row="3" Background="WhiteSmoke">
-            <bottomBar:BottomBar HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <StackPanel Grid.Row="4" Background="WhiteSmoke">
+            <bottomFuncBar:BottomFuncBar HorizontalAlignment="Left" VerticalAlignment="Top"/>
         </StackPanel>
         
         <!-- Status Bar -->
-        <Grid Grid.Row="4">
+        <Grid Grid.Row="5">
+            <bottomBtnBar:BottomBtnBar/>
             <TextBox x:Name="WindowsActiveIcon"
                      HorizontalAlignment="Left"
                      VerticalAlignment="Top"

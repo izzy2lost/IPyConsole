@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Model
 {
@@ -30,7 +31,7 @@ namespace Model
                 if (value.Length == 10)
                 {
                     _contents = value;
-                    OnPropertyChanged(nameof(Contents));
+                    OnPropertyChanged();
                 }
             }
         }
@@ -47,7 +48,7 @@ namespace Model
             set 
             {
                 Contents[index] = value;
-                OnPropertyChanged(nameof(Contents));
+                OnPropertyChanged();
             }
         }
 
@@ -61,7 +62,7 @@ namespace Model
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public void OnPropertyChanged(string? name = null)
+        public void OnPropertyChanged([CallerMemberName] string? name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }

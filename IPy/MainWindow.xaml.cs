@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Printing;
 using System.Reflection;
@@ -56,11 +57,20 @@ namespace IPy
         {
 
         }
-        
+
         private void Window_Activated(object sender, EventArgs e)
         {
             // if window is activated
-            WindowsActiveIcon.Text = "✔";
+
+            // --- 测试功能 ---
+            string progID = "VisionLabViewer.Application";
+            Type? type = Type.GetTypeFromProgID(progID);
+            if (type != null)
+            {
+                Console.WriteLine("COM组件可能已注册。");
+                WindowsActiveIcon.Text = "✔";
+            }
+            // --- 测试功能 ---
         }
 
         private void Window_Deactivated(object sender, EventArgs e)

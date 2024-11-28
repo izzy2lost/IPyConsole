@@ -1,11 +1,11 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace ControlLib.TopBar;
+namespace ControlLib.TopBar.TopBtnBar;
 
-public partial class TopBar : UserControl
+public partial class TopBtnBar : UserControl
 {
-    public TopBar()
+    public TopBtnBar()
     {
         InitializeComponent();
         this.DataContextChanged += TopBar_DataContextChanged;
