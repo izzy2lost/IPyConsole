@@ -1,15 +1,12 @@
 ﻿using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
-using System.Printing;
-using System.Reflection;
+using System.Net.Http;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
-using System.Windows.Media;
-using System.Windows.Xps;
 using System.Windows.Xps.Packaging;
 using Model;
+using Expression = System.Linq.Expressions.Expression;
 
 namespace IPy
 {
@@ -58,18 +55,40 @@ namespace IPy
 
         }
 
-        private void Window_Activated(object sender, EventArgs e)
+        private async void Window_Activated(object sender, EventArgs e)
         {
             // if window is activated
+            WindowsActiveIcon.Text = "✔";
 
             // --- 测试功能 ---
-            string progID = "VisionLabViewer.Application";
-            Type? type = Type.GetTypeFromProgID(progID);
-            if (type != null)
-            {
-                Console.WriteLine("COM组件可能已注册。");
-                WindowsActiveIcon.Text = "✔";
-            }
+            //string progID = "VisionLabViewer.Application";
+            //Type? type = Type.GetTypeFromProgID(progID);
+            //if (type != null)
+            //{
+            //      // 使用VisionLabViewer该程序，打开xmp文件
+            //}
+
+            TempTest tt = new TempTest();
+
+            // 与 ASP.NET Core API项目进行通信
+
+            //var app = Application.Current as App;
+
+            //if (app != null)
+            //{
+            //    var httpClient = app.HttpClient;
+
+            //    var request = new HttpRequestMessage(HttpMethod.Get, "https://localhost:7216/products");
+            //    var content = new StringContent("{\r\n    \"IsActive\": true\r\n}", null, "application/json");
+            //    request.Content = content;
+            //    var response = await httpClient.SendAsync(request);
+
+            //    response.EnsureSuccessStatusCode();
+                
+            //    Console.WriteLine(await response.Content.ReadAsStringAsync());
+            //}
+
+
             // --- 测试功能 ---
         }
 

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlLib", "ControlLib\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{77FE0585-CC7D-4206-9366-BDE8941735FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicFilterinApi", "DynamicFilerinApi\DynamicFilterinApi.csproj", "{CED8629D-E8F3-41DE-8E1A-05A8B7719D69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{77FE0585-CC7D-4206-9366-BDE8941735FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77FE0585-CC7D-4206-9366-BDE8941735FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77FE0585-CC7D-4206-9366-BDE8941735FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CED8629D-E8F3-41DE-8E1A-05A8B7719D69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CED8629D-E8F3-41DE-8E1A-05A8B7719D69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CED8629D-E8F3-41DE-8E1A-05A8B7719D69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CED8629D-E8F3-41DE-8E1A-05A8B7719D69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

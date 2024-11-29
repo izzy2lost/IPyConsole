@@ -128,6 +128,16 @@
                      HorizontalAlignment="Left"
                      VerticalAlignment="Top"
                      Height="20" Width="20" Margin="0" />
+
+            <Label x:Name="expression_info" 
+                   Content="..."
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="50,0,0,0"
+                   Width="100"
+                   Height="20"
+                   FontFamily="Fira Code"
+                   FontSize="10"/>
         </Grid>
     </Grid>
 </Window>

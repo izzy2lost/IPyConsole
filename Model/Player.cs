@@ -68,4 +68,11 @@ namespace Model
         }
 
     }
+
+    public enum PlayerStatus
+    {
+        Unknown,
+        Healthy,
+        UnHealthy
+    }
 }

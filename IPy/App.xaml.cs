@@ -1,5 +1,6 @@
 ﻿using System.Configuration;
 using System.Data;
+using System.Net.Http;
 using System.Windows;
 
 namespace IPy
@@ -33,6 +34,15 @@ namespace IPy
         {
             // Application deactivated
             this.IsApplicationActive = false;
+        }
+
+        private readonly HttpClient _httpClient;
+
+        public HttpClient HttpClient { get => _httpClient; }
+
+        public App()
+        {
+            _httpClient = new HttpClient();
         }
     }
 
