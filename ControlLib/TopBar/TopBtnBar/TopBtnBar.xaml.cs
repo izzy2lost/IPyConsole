@@ -27,9 +27,14 @@ public partial class TopBtnBar : UserControl
         // }
     }
 
+    public delegate bool Predicate<in T>(T obj);
+
     private void Btn_File_Click(object sender, RoutedEventArgs e)
     {
+
         Popup_File.IsOpen = !Popup_File.IsOpen;
+
+        
         //e.Handled = false;
     }
 
@@ -50,8 +55,9 @@ public partial class TopBtnBar : UserControl
 
     private void Btn_File_OpenFolder_Click(object sender, RoutedEventArgs e)
     {
-        string folderPath = @"C:\Users\xuanit\Code";
-        Process.Start("explorer.exe", folderPath);
+        string currentDirectory = Directory.GetCurrentDirectory();
+
+        Process.Start("explorer.exe", currentDirectory);
 
     }
 

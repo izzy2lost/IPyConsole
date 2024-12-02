@@ -84,10 +84,19 @@ namespace IPy
             //    var response = await httpClient.SendAsync(request);
 
             //    response.EnsureSuccessStatusCode();
-                
+
             //    Console.WriteLine(await response.Content.ReadAsStringAsync());
             //}
 
+            LogInfos logInfos = new LogInfos();
+
+
+
+            var file = new FileLogger("C:\\Users\\xuanit\\Desktop\\readme.txt");
+
+            logInfos.AA();
+
+            file.DetachLog();
 
             // --- 测试功能 ---
         }

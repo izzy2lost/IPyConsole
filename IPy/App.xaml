@@ -2,7 +2,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="IPy.App"
              xmlns:local="clr-namespace:IPy"
-             StartupUri="MainWindow.xaml"
              Activated="App_Activated" 
              Deactivated="App_Deactivated">
     <Application.Resources>
