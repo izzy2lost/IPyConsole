@@ -17,13 +17,13 @@ jobs:
     runs-on: windows-2022
 
     env:
-      SolutionPath: "IPyConsole.sln"
+      SolutionPath: "./IPyConsole.sln"
       Platform: x64
       Configuration: Debug
       BuildMode: SideLoadOnly
       AppxBundle: Never
-      ProjectPath: "IPy/IPy.csproj"
-      ProjectDirectory: "./emulator.uwp/Xbox IPy"
+      ProjectPath: "./IPyConsole/IPy.csproj"
+      ProjectDirectory: "./IPyConsole/IPy"
       PackageOutputRootDir: "D:\\a\\AppPackages"
       PackageOutputDir: "D:\\a\\Xbox IPy"
 
@@ -93,4 +93,5 @@ jobs:
         with:
           name: IPy_Archive
           path: D:\a\AppPackages\IPy_Archive.zip
+
           
