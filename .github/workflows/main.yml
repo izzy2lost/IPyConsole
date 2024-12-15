@@ -1,4 +1,4 @@
-name: Xbox IronPython Builder
+name: Xbox Python Builder
 
 on:
   workflow_dispatch:
@@ -10,22 +10,22 @@ on:
       package_name:
         description: 'Package Name'
         required: true
-        default: 'Xbox_IPyConsole'
+        default: 'python'
 
 jobs:
   build:
     runs-on: windows-2022
 
     env:
-      SolutionPath: "./IPyConsole.sln"
+      SolutionPath: "IPyConsole.sln"
       Platform: x64
-      Configuration: Debug
+      Configuration: Release
       BuildMode: SideLoadOnly
       AppxBundle: Never
-      ProjectPath: "./IPyConsole/IPy.csproj"
-      ProjectDirectory: "./IPyConsole/IPy"
+      ProjectPath: "IPy/IPy.csproj"
+      ProjectDirectory: "IPy/"
       PackageOutputRootDir: "D:\\a\\AppPackages"
-      PackageOutputDir: "D:\\a\\Xbox IPy"
+      PackageOutputDir: "D:\\a\\Xboxpython"
 
     steps:
       - name: Checkout Repository
@@ -92,6 +92,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: IPy_Archive
-          path: D:\a\AppPackages\IPy_Archive.zip
+          path: D:\a\AppPackages\ipy_Archive.zip
+
 
           
