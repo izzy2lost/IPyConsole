@@ -18,8 +18,8 @@ jobs:
 
     env:
       SolutionPath: "IPyConsole.sln"
-      Platform: x64
-      Configuration: Release
+      Platform: Any CPU
+      Configuration: Debug
       BuildMode: SideLoadOnly
       AppxBundle: Never
       ProjectPath: "IPy/IPy.csproj"
@@ -52,8 +52,8 @@ jobs:
         run: |
           msbuild /restore `
             "$env:SolutionPath" `
-            /p:Platform=$env:Platform `
-            /p:Configuration=$env:Configuration `
+            /p:Platform="$env:Platform" `
+            /p:Configuration="$env:Configuration" `
             /p:UapAppxPackageBuildMode=$env:BuildMode `
             /p:AppxBundle=$env:AppxBundle `
             /p:PackageCertificateThumbprint="${{ env.THUMBPRINT }}" `
@@ -93,6 +93,4 @@ jobs:
         with:
           name: IPy_Archive
           path: D:\a\AppPackages\ipy_Archive.zip
-
-
           
