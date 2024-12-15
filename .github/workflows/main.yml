@@ -10,7 +10,7 @@ on:
       package_name:
         description: 'Package Name'
         required: true
-        default: 'python'
+        default: 'Xbox_Python'
 
 jobs:
   build:
@@ -19,13 +19,13 @@ jobs:
     env:
       SolutionPath: "IPyConsole.sln"
       Platform: Any CPU
-      Configuration: Debug
+      Configuration: Release
       BuildMode: SideLoadOnly
       AppxBundle: Never
       ProjectPath: "IPy/IPy.csproj"
       ProjectDirectory: "IPy/"
-      PackageOutputRootDir: "D:\\a\\AppPackages"
-      PackageOutputDir: "D:\\a\\Xboxpython"
+      PackageOutputRootDir: "D:\\a\\pac-man-emulator\\pac-man-emulator\\emulator.uwp\\AppPackages"
+      PackageOutputDir: "D:\\a\\pac-man-emulator\\pac-man-emulator\\emulator.uwp\\Xbox Pacman"
 
     steps:
       - name: Checkout Repository
@@ -52,8 +52,8 @@ jobs:
         run: |
           msbuild /restore `
             "$env:SolutionPath" `
-            /p:Platform="$env:Platform" `
-            /p:Configuration="$env:Configuration" `
+            /p:Platform=$env:Platform `
+            /p:Configuration=$env:Configuration `
             /p:UapAppxPackageBuildMode=$env:BuildMode `
             /p:AppxBundle=$env:AppxBundle `
             /p:PackageCertificateThumbprint="${{ env.THUMBPRINT }}" `
@@ -91,6 +91,7 @@ jobs:
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: IPy_Archive
-          path: D:\a\AppPackages\ipy_Archive.zip
+          name: Pacman_Archive
+          path: D:\a\pac-man-emulator\pac-man-emulator\emulator.uwp\AppPackages\Pacman_Archive.zip
+
           
