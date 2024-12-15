@@ -1,6 +1,4 @@
-using System.Windows;
 using IronPython.Hosting;
-
 
 namespace Core
 {

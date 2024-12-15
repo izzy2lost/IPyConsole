@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="IronPython" Version="3.4.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.2" />
   </ItemGroup>
 
 </Project>

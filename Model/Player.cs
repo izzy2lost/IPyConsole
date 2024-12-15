@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ControlLib.Utils
+namespace Model
 {
-    internal class Player: INotifyPropertyChanged
+    public class Player: INotifyPropertyChanged
     {
         private readonly int _id;
 
@@ -36,7 +31,7 @@ namespace ControlLib.Utils
                 if (value.Length == 10)
                 {
                     _contents = value;
-                    OnPropertyChanged(nameof(Contents));
+                    OnPropertyChanged();
                 }
             }
         }
@@ -53,7 +48,7 @@ namespace ControlLib.Utils
             set 
             {
                 Contents[index] = value;
-                OnPropertyChanged(nameof(Contents));
+                OnPropertyChanged();
             }
         }
 
@@ -67,10 +62,17 @@ namespace ControlLib.Utils
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public void OnPropertyChanged(string? name = null)
+        public void OnPropertyChanged([CallerMemberName] string? name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
+    }
+
+    public enum PlayerStatus
+    {
+        Unknown,
+        Healthy,
+        UnHealthy
     }
 }
