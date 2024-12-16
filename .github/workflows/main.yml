@@ -24,8 +24,8 @@ jobs:
       AppxBundle: Never
       ProjectPath: "IPy/IPy.csproj"
       ProjectDirectory: "IPy/"
-      PackageOutputRootDir: "D:\\a\\pac-man-emulator\\pac-man-emulator\\emulator.uwp\\AppPackages"
-      PackageOutputDir: "D:\\a\\pac-man-emulator\\pac-man-emulator\\emulator.uwp\\Xbox Pacman"
+      PackageOutputRootDir: "${{ github.workspace }}/AppPackages"
+      PackageOutputDir: "${{ github.workspace }}/AppPackages/Xbox_Pacman"
 
     steps:
       - name: Checkout Repository
@@ -35,7 +35,7 @@ jobs:
 
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1
-        
+
       - name: Generate Self-Signed Certificate
         id: generate_cert
         run: |
@@ -82,16 +82,9 @@ jobs:
           }
         shell: pwsh
 
-      - name: List Directory Contents
-        run: |
-          Write-Host "Listing contents of ${env:PackageOutputRootDir}:"
-          Get-ChildItem -Path "${env:PackageOutputRootDir}" -Recurse -Force
-        shell: pwsh
-
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v3
         with:
           name: Pacman_Archive
-          path: D:\a\pac-man-emulator\pac-man-emulator\emulator.uwp\AppPackages\Pacman_Archive.zip
-
+          path: ${{ env.PackageOutputRootDir }}/Pacman_Archive.zip
           
