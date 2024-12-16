@@ -1,4 +1,4 @@
-name: Durango Builder
+name: Python Builder
 
 on:
   workflow_dispatch:
@@ -10,7 +10,7 @@ on:
       package_name:
         description: 'Package Name'
         required: true
-        default: 'Durango'
+        default: 'Python'
 
 jobs:
   build:
