@@ -22,14 +22,14 @@ jobs:
       Configuration: Debug
       BuildMode: SideLoadOnly
       AppxBundle: Never      
-      ProjectPath: IPy\IPy.csproj
-      ProjectDirectory: .\IPy
+      ProjectPath: IPy/IPy.csproj
+      ProjectDirectory: ./IPy
       PackageOutputRootDir: C:\AppPackage
       PackageOutputDir: IPy
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
